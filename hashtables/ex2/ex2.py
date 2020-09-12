@@ -21,13 +21,9 @@ def hash_tickets(tickets, length):
 
 
 def reconstruct_trip(tickets, length):
-    res = ["NONE"] * length
     routes = hash_tickets(tickets, length)
+    res = [routes["NONE"]] * length
 
-    current, i = routes["NONE"], 0
-    while current != "NONE":
-        res[i] = current
-        current = routes[current]
-        i += 1
+    for i in range(1, len(res)):
+        res[i] = routes[res[i - 1]]
     return res
-

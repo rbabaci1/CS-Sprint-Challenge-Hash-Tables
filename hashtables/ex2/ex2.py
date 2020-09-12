@@ -11,13 +11,18 @@ class Ticket:
         return self.destination
 
 
-def reconstruct_trip(tickets, length):
-    routes, res = {}, ["NONE"] * length
-
+def hash_tickets(tickets, length):
+    res = {}
     for i in range(length):
         ticket = tickets[i]
         source, destination = ticket.get_source(), ticket.get_destination()
-        routes[source] = destination
+        res[source] = destination
+    return res
+
+
+def reconstruct_trip(tickets, length):
+    res = ["NONE"] * length
+    routes = hash_tickets(tickets, length)
 
     current, i = routes["NONE"], 0
     while current != "NONE":

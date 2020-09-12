@@ -12,20 +12,17 @@ class Ticket:
 
 
 def reconstruct_trip(tickets, length):
-    routes, res = {}, []
+    routes, res = {}, ["NONE"] * length
 
     for i in range(length):
         ticket = tickets[i]
         source, destination = ticket.get_source(), ticket.get_destination()
         routes[source] = destination
 
-    current = routes["NONE"]
-
+    current, i = routes["NONE"], 0
     while current != "NONE":
-        res.append(current)
+        res[i] = current
         current = routes[current]
-        if current == "NONE":
-            res.append(current)
-            break
+        i += 1
     return res
 

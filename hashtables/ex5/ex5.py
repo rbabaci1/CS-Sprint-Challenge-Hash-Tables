@@ -3,10 +3,9 @@ def finder(files, queries):
 
     for f in files:
         file_name = f.split("/")[-1]
-        if file_name in storage:
-            storage[file_name].append(f)
-        else:
-            storage[file_name] = [f]
+        if file_name not in storage:
+            storage[file_name] = []
+        storage[file_name].append(f)
 
     for q in queries:
         if q in storage:

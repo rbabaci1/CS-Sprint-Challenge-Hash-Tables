@@ -4,15 +4,15 @@ from ex5 import finder
 
 
 class TestEx2(unittest.TestCase):
-    # def test_small(self):
-    #     files = ["/bin/foo", "/bin/bar", "/usr/bin/baz"]
-    #     queries = ["foo", "qux", "baz"]
-    #     result = finder(files, queries)
-    #     self.assertTrue(result == ["/bin/foo", "/usr/bin/baz"])
+    def test_small(self):
+        files = ["/bin/foo", "/bin/bar", "/usr/bin/baz"]
+        queries = ["foo", "qux", "baz"]
+        result = finder(files, queries)
+        self.assertTrue(result == ["/bin/foo", "/usr/bin/baz"])
 
-    #     queries = ["qux"]
-    #     result = finder(files, queries)
-    #     self.assertTrue(result == [])
+        queries = ["qux"]
+        result = finder(files, queries)
+        self.assertTrue(result == [])
 
     def test_large(self):
         files = []

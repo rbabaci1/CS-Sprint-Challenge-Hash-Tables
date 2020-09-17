@@ -1,9 +1,11 @@
-def has_negatives(a):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
-
+def has_negatives(numbers):
+    storage, result = set(), []
+    for n in numbers:
+        diff = 0 - n
+        if diff in storage:
+            result.append(abs(diff))
+        else:
+            storage.add(n)
     return result
 
 

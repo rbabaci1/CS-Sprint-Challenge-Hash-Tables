@@ -1,9 +1,16 @@
 def intersection(arrays):
-    """
-    YOUR CODE HERE
-    """
-    # Your code here
+    result, num_lists = [], len(arrays)
+    for i in range(num_lists):
+        arrays[i] = set(arrays[i])
 
+    for x in arrays[0]:
+        k = 1
+        while k < num_lists:
+            if x not in arrays[k]:
+                break
+            k += 1
+        if k == num_lists:
+            result.append(x)
     return result
 
 
